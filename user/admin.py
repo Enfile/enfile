@@ -9,3 +9,7 @@ class Profile(admin.ModelAdmin):
 @admin.register(User)
 class User(admin.ModelAdmin):
   pass
+
+@admin.register(UserSerializer)
+class UserSerializer(admin.ModelAdmin):
+  pass
