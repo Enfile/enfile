@@ -24,6 +24,7 @@ class Technology(models.Model):
     )
     user = models.ForeignKey(
         User,
+        related_name='technologies',
         on_delete=models.CASCADE
     )
     technology_type = models.ForeignKey(
@@ -48,6 +49,7 @@ class Product(models.Model):
     )
     user = models.ForeignKey(
         User,
+        related_name='products',
         on_delete=models.CASCADE
     )
     product_type = models.CharField(
@@ -77,6 +79,7 @@ class Experience(models.Model):
     )
     user = models.ForeignKey(
         User,
+        related_name='Experiences',
         on_delete=models.CASCADE
     )
     experience_type = models.CharField(
