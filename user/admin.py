@@ -10,6 +10,3 @@ class Profile(admin.ModelAdmin):
 class User(admin.ModelAdmin):
   pass
 
-@admin.register(UserSerializer)
-class UserSerializer(admin.ModelAdmin):
-  pass
