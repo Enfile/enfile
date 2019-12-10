@@ -9,3 +9,4 @@ class Profile(admin.ModelAdmin):
 @admin.register(User)
 class User(admin.ModelAdmin):
   pass
+
