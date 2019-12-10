@@ -20,10 +20,12 @@ class TechnologyLevel(models.Model):
 class Technology(models.Model):
     technology_id = models.UUIDField(
         primary_key=True,
+        default=uuid_lib.uuid4,
         editable=False
     )
     user = models.ForeignKey(
         User,
+        related_name='technologies',
         on_delete=models.CASCADE
     )
     technology_type = models.ForeignKey(
@@ -44,10 +46,12 @@ class Technology(models.Model):
 class Product(models.Model):
     product_id = models.UUIDField(
         primary_key=True,
+        default=uuid_lib.uuid4,
         editable=False
     )
     user = models.ForeignKey(
         User,
+        related_name='products',
         on_delete=models.CASCADE
     )
     product_type = models.CharField(
@@ -73,10 +77,12 @@ class Product(models.Model):
 class Experience(models.Model):
     experience_id = models.UUIDField(
         primary_key=True,
+        default=uuid_lib.uuid4,
         editable=False
     )
     user = models.ForeignKey(
         User,
+        related_name='experiences',
         on_delete=models.CASCADE
     )
     experience_type = models.CharField(
