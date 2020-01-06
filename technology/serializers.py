@@ -1,6 +1,20 @@
 from rest_framework import serializers
 
-from .models import Experience
+from .models import Product, Experience
+
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = [
+            'product_id',
+            'product_type',
+            'link',
+            'technology',
+            'text',
+            'create_at',
+            'update_at',
+        ]
 
 
 class ExperienceSerializer(serializers.ModelSerializer):
@@ -16,5 +30,3 @@ class ExperienceSerializer(serializers.ModelSerializer):
             'create_at',
             'update_at'
         ]
-
-
