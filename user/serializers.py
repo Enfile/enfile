@@ -28,6 +28,12 @@ class UserSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(required=False)
     experiences = ExperienceSerializer(many=True)
 
+    def create(self, validated_data):
+        profile_data = validated_data.pop('profile')
+        profile = Profile.objects.create(**profile_data)
+        user = User.objects.create(profile=profile, **validated_data)
+        return user
+
     class Meta:
         model = User
         fields = (
