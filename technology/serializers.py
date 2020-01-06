@@ -22,7 +22,6 @@ class ExperienceSerializer(serializers.ModelSerializer):
         model = Experience
         fields = [
             'experience_id',
-            'user',
             'experience_type',
             'link',
             'technology',
