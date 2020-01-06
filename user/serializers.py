@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from drf_writable_nested.serializers import WritableNestedModelSerializer
 
 from technology.serializers import ExperienceSerializer
 from .models import Profile, User
@@ -24,15 +25,9 @@ class ProfileSerializer(serializers.ModelSerializer):
         )
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(WritableNestedModelSerializer):
     profile = ProfileSerializer(required=False)
     experiences = ExperienceSerializer(many=True)
-
-    def create(self, validated_data):
-        profile_data = validated_data.pop('profile')
-        profile = Profile.objects.create(**profile_data)
-        user = User.objects.create(profile=profile, **validated_data)
-        return user
 
     class Meta:
         model = User
