@@ -12,8 +12,8 @@ class ProductSerializer(serializers.ModelSerializer):
             'link',
             'technology',
             'text',
-            'create_at',
-            'update_at',
+            'created_at',
+            'updated_at',
         ]
 
 
@@ -26,6 +26,6 @@ class ExperienceSerializer(serializers.ModelSerializer):
             'link',
             'technology',
             'text',
-            'create_at',
-            'update_at'
+            'created_at',
+            'updated_at'
         ]

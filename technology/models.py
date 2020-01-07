@@ -11,7 +11,7 @@ class TechnologyType(models.Model):
 
 
 class TechnologyLevel(models.Model):
-    level = models.IntegerField()
+    level = models.IntegerField(unique=True)
     text = models.CharField(max_length=256)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -40,7 +40,7 @@ class Technology(models.Model):
     months_of_experience = models.IntegerField(default=0)
     not_want_to_use = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class Product(models.Model):
@@ -69,9 +69,9 @@ class Product(models.Model):
         default='',
         blank=True
     )
-    text = models.TextField(default='')
-    create_at = models.DateTimeField(auto_now_add=True)
-    update_at = models.DateTimeField(auto_now=True)
+    text = models.TextField(default='', blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class Experience(models.Model):
@@ -100,6 +100,6 @@ class Experience(models.Model):
         default='',
         blank=True
     )
-    text = models.TextField(default='')
-    create_at = models.DateTimeField(auto_now_add=True)
-    update_at = models.DateTimeField(auto_now=True)
+    text = models.TextField(default='', blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
