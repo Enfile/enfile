@@ -12,7 +12,7 @@
     "model": "technology.technologylevel",
     "fields": {
       "level": 1,
-      "text": "授業などで触れたことがある",
+      "text": "未経験(興味あり)",
       "created_at": "2019-06-04T15:43:29.899",
       "updated_at": "2019-06-04T15:43:29.899"
     }
@@ -21,7 +21,7 @@
     "model": "technology.technologylevel",
     "fields": {
       "level": 2,
-      "text": "調べながらであれば、任意の処理を記述することができる",
+      "text": "授業などで触れたことがある",
       "created_at": "2019-06-04T15:43:29.899",
       "updated_at": "2019-06-04T15:43:29.899"
     }
@@ -30,7 +30,7 @@
     "model": "technology.technologylevel",
     "fields": {
       "level": 3,
-      "text": "言語の特性を理解し、適切な処理を記述できる",
+      "text": "調べながらであれば、任意の処理を記述することができる",
       "created_at": "2019-06-04T15:43:29.899",
       "updated_at": "2019-06-04T15:43:29.899"
     }
@@ -39,6 +39,15 @@
     "model": "technology.technologylevel",
     "fields": {
       "level": 4,
+      "text": "言語の特性を理解し、適切な処理を記述できる",
+      "created_at": "2019-06-04T15:43:29.899",
+      "updated_at": "2019-06-04T15:43:29.899"
+    }
+  },
+  {
+    "model": "technology.technologylevel",
+    "fields": {
+      "level": 5,
       "text": "つよい",
       "created_at": "2019-06-04T15:43:29.899",
       "updated_at": "2019-06-04T15:43:29.899"
