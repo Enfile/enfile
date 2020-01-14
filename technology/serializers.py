@@ -10,9 +10,7 @@ class TechnologyLevelSerializer(serializers.ModelSerializer):
         model = TechnologyLevel
         fields = [
             'level',
-            'text',
-            'created_at',
-            'updated_at',
+            'text'
         ]
 
 
