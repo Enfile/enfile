@@ -49,7 +49,11 @@ class UserSerializer(WritableNestedModelSerializer):
 
 class UserFilter(filters.FilterSet):
     profile__name = filters.CharFilter(lookup_expr='contains')
+    profile__school_name = filters.CharFilter(lookup_expr='contains')
 
     class Meta:
         model = User
-        fields = ['profile__name']
+        fields = (
+            'profile__name',
+            'profile__school_name',
+        )
