@@ -1,15 +1,10 @@
 from django.contrib import admin
 
-from .models import Technology, TechnologyType, TechnologyLevel, Product, Experience
+from .models import Technology, TechnologyLevel, Product, Experience
 
 
 @admin.register(Technology)
 class Technology(admin.ModelAdmin):
-    pass
-
-
-@admin.register(TechnologyType)
-class TechnologyType(admin.ModelAdmin):
     pass
 
 

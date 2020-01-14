@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from drf_writable_nested.serializers import WritableNestedModelSerializer
 
-from technology.serializers import ExperienceSerializer, ProductSerializer
+from technology.serializers import ExperienceSerializer, ProductSerializer, TechnologySerializer
 from .models import Profile, User
 
 
@@ -29,14 +29,16 @@ class UserSerializer(WritableNestedModelSerializer):
     profile = ProfileSerializer(required=False)
     experiences = ExperienceSerializer(many=True)
     products = ProductSerializer(many=True)
+    technologies = TechnologySerializer(many=True)
 
     class Meta:
         model = User
         fields = (
             'user_id',
             'profile',
-            'products',
             'experiences',
+            'products',
+            'technologies',
             'is_active',
             'created_at',
             'updated_at',
