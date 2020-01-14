@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from drf_writable_nested.serializers import WritableNestedModelSerializer
+from django_filters import rest_framework as filters
+
 
 from technology.serializers import ExperienceSerializer, ProductSerializer, TechnologySerializer
 from .models import Profile, User
@@ -43,3 +45,11 @@ class UserSerializer(WritableNestedModelSerializer):
             'created_at',
             'updated_at',
         )
+
+
+class UserFilter(filters.FilterSet):
+    profile__name = filters.CharFilter(lookup_expr='contains')
+
+    class Meta:
+        model = User
+        fields = ['profile__name']
