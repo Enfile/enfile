@@ -51,7 +51,13 @@ class UserFilter(filters.FilterSet):
     profile__name = filters.CharFilter(lookup_expr='contains')
     profile__school_name = filters.CharFilter(lookup_expr='contains')
     profile__using_os = filters.CharFilter(lookup_expr='contains')
-    technologies__name = filters.CharFilter(lookup_expr='contains')
+    technologies__name = filters.CharFilter(lookup_expr='exact')
+
+    order_by = filters.OrderingFilter(
+        fields=(
+            ('technologies__technology_level_id', 'order_by_level'),
+        ),
+    )
 
     class Meta:
         model = User
