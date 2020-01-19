@@ -2,6 +2,18 @@ from django.db import models
 import uuid as uuid_lib
 
 
+class Account(models.Model):
+    account_id = models.UUIDField(
+        primary_key=True,
+        default=uuid_lib.uuid4,
+        editable=False
+    )
+
+    sub = models.CharField(max_length=256, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
 class Profile(models.Model):
     profile_id = models.UUIDField(
         primary_key=True,
@@ -34,6 +46,13 @@ class User(models.Model):
 
     profile = models.ForeignKey(
         Profile,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+
+    account = models.ForeignKey(
+        Account,
         on_delete=models.CASCADE,
         blank=True,
         null=True
