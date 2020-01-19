@@ -2,9 +2,18 @@ from rest_framework import serializers
 from drf_writable_nested.serializers import WritableNestedModelSerializer
 from django_filters import rest_framework as filters
 
-
 from technology.serializers import ExperienceSerializer, ProductSerializer, TechnologySerializer
-from .models import Profile, User
+from .models import Account, Profile, User
+
+
+class AccountSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Account
+        fields = (
+            'sub',
+            'created_at',
+            'updated_at',
+        )
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -28,15 +37,17 @@ class ProfileSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(WritableNestedModelSerializer):
+    account = AccountSerializer()
     profile = ProfileSerializer(required=False)
-    experiences = ExperienceSerializer(many=True)
-    products = ProductSerializer(many=True)
-    technologies = TechnologySerializer(many=True)
+    experiences = ExperienceSerializer(required=False, many=True)
+    products = ProductSerializer(required=False, many=True)
+    technologies = TechnologySerializer(required=False, many=True)
 
     class Meta:
         model = User
         fields = (
             'user_id',
+            'account',
             'profile',
             'experiences',
             'products',
@@ -48,6 +59,7 @@ class UserSerializer(WritableNestedModelSerializer):
 
 
 class UserFilter(filters.FilterSet):
+    account__sub = filters.CharFilter(lookup_expr='exact')
     profile__name = filters.CharFilter(lookup_expr='contains')
     profile__school_name = filters.CharFilter(lookup_expr='contains')
     profile__using_os = filters.CharFilter(lookup_expr='contains')
@@ -62,6 +74,7 @@ class UserFilter(filters.FilterSet):
     class Meta:
         model = User
         fields = (
+            'account__sub',
             'profile__name',
             'profile__school_name',
             'profile__using_os',
