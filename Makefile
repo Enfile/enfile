@@ -1,6 +1,8 @@
 build:
 	docker-compose down
 	docker-compose build
+	docker-compose run web python manage.py migrate
+	docker-compose run web python manage.py loaddata technology/fixtures/technology-levels.json
 
 up:
 	docker-compose down
