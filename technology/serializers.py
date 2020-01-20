@@ -23,6 +23,8 @@ class TechnologySerializer(WritableNestedModelSerializer):
             'technology_id',
             'technology_level',
             'name',
+            'years_of_experience',
+            'months_of_experience',
             'created_at',
             'updated_at',
         ]
