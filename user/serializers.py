@@ -37,7 +37,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(WritableNestedModelSerializer):
-    account = AccountSerializer()
+    account = AccountSerializer(required=False)
     profile = ProfileSerializer(required=False)
     experiences = ExperienceSerializer(required=False, many=True)
     products = ProductSerializer(required=False, many=True)
